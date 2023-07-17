@@ -72,6 +72,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'api.wsgi.application'
 
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 DATABASES = {
