@@ -12,13 +12,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#)hg4n4qrvw632%=lel$)t6=3+481a*x&=a%bmwgiug#puiwnr'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 # Your Stripe Secret Key
-STRIPE_SECRET_KEY = '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'
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 ALLOWED_HOSTS = []
 
@@ -76,7 +76,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://yzuqqvoe:3SM6ftIeLGK-KrRTi_1XkPzrZE5cKJol@horton.db.elephantsql.com/yzuqqvoe')
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 
