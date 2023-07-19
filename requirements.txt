@@ -4,3 +4,4 @@ python-dotenv==1.0.0
 sqlparse==0.4.4
 typing_extensions==4.7.1
 dj_database_url==0.5.0
+cloudinary==2.0.1
