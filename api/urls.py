@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+from api.views import intj_api_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('payments/', include('payments.urls')),
-
+    path('api/', intj_api_view, name='intj_api'),
 ]
