@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
@@ -28,7 +28,7 @@ STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
 
 
 CORS_ALLOWED_ORIGINS = [
-    'https://intjgrowth-l58w.vercel.app/',
+    'https://intjgrowth-l58w.vercel.app',
 ]
 
 ALLOWED_HOSTS = ['*']
