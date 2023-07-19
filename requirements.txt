@@ -6,4 +6,5 @@ typing_extensions==4.7.1
 dj_database_url==0.5.0
 cloudinary==1.33.0
 django-allauth==0.48.0
+django-cors-headers==3.8.0
 
