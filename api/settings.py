@@ -1,25 +1,31 @@
-import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv()
+ 
 from pathlib import Path
 import os
+import dj_database_url
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
-
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# Your Stripe Secret Key
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -31,6 +37,10 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 # Application definition
 
 INSTALLED_APPS = [
+    'allauth',
+    'allauth.account',
+    'corsheaders',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +51,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,6 +60,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # default backend
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 

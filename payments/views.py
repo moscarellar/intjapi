@@ -22,8 +22,8 @@ class CreateCheckoutSessionView(View):
                 },
             ],
             mode='payment',
-            success_url='http://yourfrontend.com/success',
-            cancel_url='http://yourfrontend.com/cancel',
+            success_url='https://intjgrowth-l58w.vercel.app/success',
+            cancel_url='https://intjgrowth-l58w.vercel.app/cancel',
         )
         return JsonResponse({
             'id': checkout_session.id
