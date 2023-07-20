@@ -27,9 +27,14 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
 
 
+# In settings.py
+
 CORS_ALLOWED_ORIGINS = [
     'https://intjgrowth-l58w.vercel.app',
+    'https://intjgrowthfront.vercel.app',
+    'http://localhost:3000',
 ]
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -43,6 +48,7 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 INSTALLED_APPS = [
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
     'corsheaders',
 
     'django.contrib.admin',
