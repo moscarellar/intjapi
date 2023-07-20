@@ -78,7 +78,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-
+# default backend
 
 ROOT_URLCONF = 'api.urls'
 
