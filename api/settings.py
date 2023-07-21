@@ -1,9 +1,9 @@
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
  
 from pathlib import Path
-import os
 import dj_database_url
 
 import cloudinary
@@ -105,7 +105,14 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT', '5432'),  # Use default port 5432 if not specified
+    }
 }
 
 
